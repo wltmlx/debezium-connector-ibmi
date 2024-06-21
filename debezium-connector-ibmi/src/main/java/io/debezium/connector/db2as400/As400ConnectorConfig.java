@@ -63,7 +63,8 @@ public class As400ConnectorConfig extends RelationalDatabaseConnectorConfig {
     /**
      * keep alive flag, should the driver use a secure connection defaults to false
      */
-    public static final Field SECURE = Field.create("secure", "secure", "use secure connection", true);
+    // toDo this value does not seem to propagate correctly
+    public static final Field SECURE = Field.create("secure", "secure", "use secure connection", false);
 
     /**
      * threads should be used in communication with the host servers - timeouts might not work as expected when true - default false

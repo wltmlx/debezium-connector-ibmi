@@ -137,7 +137,8 @@ public class As400RpcConnection implements AutoCloseable, Connect<AS400, IOExcep
         final JournalProcessedPosition position = offsetCtx.getPosition();
         success = retrieveJournal.retrieveJournal(position);
 
-        logOffsets(position, success);
+        // toDo disbaled for safety, check and readable
+        // logOffsets(position, success);
 
         watchDog.alive();
 

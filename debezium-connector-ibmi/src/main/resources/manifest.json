@@ -1,0 +1,31 @@
+{
+  "name" : "ibmi-cdc-connector",
+  "version" : "2.7.0",
+  "title" : "IBM iSeries CDC Connector",
+  "description" : "The connector runs on Apache Kafka Connect Clusters \nto source data from AS400 CDC Events to Kafka topics.",
+  "owner" : {
+    "username" : "debezium",
+    "type" : "organization",
+    "name" : "Debezium",
+    "url" : "https://debezium.io/"
+  },
+  "support" : {
+  },
+  "tags" : [ "debezium", "as400", "iSeries", "CDC", "change", "data", "capture" ],
+  "features" : {
+    "supported_encodings" : [ "any" ],
+    "single_message_transforms" : true,
+    "confluent_control_center_integration" : true,
+    "kafka_connect_api" : true
+  },
+  "logo" : "assets/debezium.png",
+  "documentation_url" : "http://lkwbitbucket.lkw-walter.com/projects/DP/repos/debezium-connector-ibmi",
+  "source_url" : "http://lkwbitbucket.lkw-walter.com/projects/DP/repos/debezium-connector-ibmi",
+  "docker_image" : { },
+  "license" : [ {
+    "name" : "Apache License, Version 2.0",
+    "url" : "http://www.apache.org/licenses/LICENSE-2.0.txt"
+  } ],
+  "component_types" : [ "source" ],
+  "release_date" : "2024-03-22"
+}

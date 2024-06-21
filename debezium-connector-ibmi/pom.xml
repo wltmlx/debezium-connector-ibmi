@@ -2,7 +2,7 @@
     <parent>
         <groupId>io.debezium</groupId>
         <artifactId>debezium-connector-reactor-ibmi</artifactId>
-        <version>2.7.0-SNAPSHOT</version>
+        <version>2.7.0.Beta2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -105,6 +105,13 @@
             <artifactId>logback-classic</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--        development server -->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -135,6 +142,40 @@
     Define several useful profiles
     -->
     <profiles>
+        <profile>
+            <id>assembly_confluenthub</id>
+            <properties>
+                <connect-api-scope>provided</connect-api-scope>
+                <scope>provided</scope>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>3.7.1</version>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <attach>true</attach>  <!-- we want attach & deploy these to Maven -->
+                                    <descriptors>
+                                        <descriptor>src/assembly/package.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>assembly</id>
             <activation>
